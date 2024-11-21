@@ -20,7 +20,6 @@ jobs:
         with:
           aws-access-key-id: ${{secrets.AWS_ACCESS_KEY_ID}}
           aws-secret-access-key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
-          aws_session_token: ${{secrets.AWS_SESSION_TOKEN}}
           aws-region: eu-central-1
 
     
@@ -48,8 +47,8 @@ jobs:
       - name: Copy SSH Key
         run: |
           mkdir -p ~/.ssh
-          echo "${{ secrets.AWS_SSH_KEY }}" > ~/.ssh/terraformKey.pem
-          chmod 600 ~/.ssh/terraformKey.pem
+          echo "${{ secrets.AWS_SSH_KEY }}" > ~/.ssh/new-pair.pem
+          chmod 600 ~/.ssh/new-pair.pem
 
       - name: Ansible Playbook ausführen
         working-directory: ./ansible
