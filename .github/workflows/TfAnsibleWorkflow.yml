@@ -48,7 +48,7 @@ jobs:
         run: |
           mkdir -p ~/.ssh
           echo "${{ secrets.AWS_SSH_KEY }}" > ~/.ssh/new-pair.pem
-          chmod 600 ~/.ssh/new-pair.pem
+          chmod 400 ~/.ssh/new-pair.pem
 
       - name: Ansible Playbook ausführen
         working-directory: ./ansible
